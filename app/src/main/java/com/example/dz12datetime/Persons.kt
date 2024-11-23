@@ -1,14 +1,14 @@
 package com.example.dz12datetime
 
 import java.io.Serializable
-import java.time.LocalDateTime
+
 
 class Persons(
     var name:String?,
     var family:String?,
     var besdata: String?,
     var image: String?,
-    var telef:String
+    var telefon:String
 ): Serializable
 {
     override fun toString(): String {

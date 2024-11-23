@@ -20,6 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/text2"
         android:text="Персона"
         android:textColor="@color/red"
         android:textStyle="bold"
@@ -32,10 +33,10 @@
         android:id="@+id/v1"
         android:layout_width="413dp"
         android:layout_height="297dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/toolbarPer"
+        app:layout_constraintTop_toBottomOf="@id/text2"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -83,6 +84,17 @@
             tools:layout_editor_absoluteX="0dp" />
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v1"
+
+        tools:ignore="MissingConstraints" >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/editImageIV"
@@ -94,6 +106,7 @@
         app:layout_constraintBottom_toTopOf="@+id/exitBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -109,7 +122,7 @@
         tools:layout_editor_absoluteY="663dp"
         tools:ignore="MissingConstraints" />
 
-
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,13 +53,14 @@ class MainActivity2 : AppCompatActivity() {
         personaFam = findViewById(R.id.personaFam)
         personaData = findViewById(R.id.personaData)
         personaTelefon=findViewById(R.id.personaTelefon)
+        editImageIV=findViewById(R.id.editImageIV)
 
         person = (intent.extras?.getSerializable(Persons::class.java.simpleName) as Persons?)!!
         val name = person?.name.toString()
         val family = person?.family.toString()
         val besdata= person?.besdata.toString()
         val image = person?.image.toString()
-        val telefon = person?.telef.toString()
+        val telefon = person?.telefon.toString()
 
         val imageUri = Uri.parse(image)
         editImageIV.setImageURI(imageUri)
@@ -87,7 +88,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
         buttonBackBTN.setOnClickListener {
-            finish()
+            finishAffinity()
         }
 
 

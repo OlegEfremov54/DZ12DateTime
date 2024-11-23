@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         personaData = findViewById(R.id.personaData)
         personaTelefon=findViewById(R.id.personaTelefon)
         startButton = findViewById(R.id.addBTN)
-
+        editImageIV=findViewById(R.id.editImageIV)
 //инициация картинки
 
         photoPickerLauncher =
@@ -78,12 +78,13 @@ class MainActivity : AppCompatActivity() {
             val image = fotoUri.toString()
             val fon = personaTelefon.toString()
             val dataInp = LocalDate.now()
-                .format(DateTimeFormatter.ofPattern("mm dd yy"))
+                .format(DateTimeFormatter.ofPattern("MM dd YYYY"))
             val besdata = dataInp.toString()
             val person = Persons(name, fam, besdata, image,fon)
             val intent = Intent(this, MainActivity2::class.java)
             intent.putExtra(Persons::class.java.simpleName, person)
             startActivity(intent)
+            finish()
 
         }
 
