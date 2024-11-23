@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fon"
+    tools:context=".MainActivity2">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mediumPurple"
+        tools:ignore="MissingConstraints"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Персона"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarPer" />
+
+    <LinearLayout
+        android:id="@+id/v1"
+        android:layout_width="413dp"
+        android:layout_height="297dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbarPer"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/personaNameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_name"
+            android:textColor="@color/blue"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/personaFam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_fam"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/personaData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_data"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/personaTelefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_telefon"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/editImageIV"
+        android:layout_width="159dp"
+        android:layout_height="138dp"
+        android:layout_marginBottom="92dp"
+        android:background="@color/white"
+        android:src="@drawable/baseline_face_24"
+        app:layout_constraintBottom_toTopOf="@+id/exitBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/exitBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="Выход"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="663dp"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

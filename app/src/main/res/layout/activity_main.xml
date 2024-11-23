@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fon"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mediumPurple"
+        tools:ignore="MissingConstraints"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Карточка данных"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <LinearLayout
+        android:id="@+id/v1"
+        android:layout_width="413dp"
+        android:layout_height="297dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/personaNameET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_view_name"
+            android:textColor="@color/blue"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/personaFam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_view_fam"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/personaData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_view_data"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/editImageIV"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/personaTelefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:hint="@string/text_view_telefon"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/editImageIV"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/editImageIV"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/baseline_face_24"
+        app:layout_constraintBottom_toTopOf="@+id/addBTN"
+        app:layout_constraintTop_toBottomOf="@+id/v1"
+        tools:ignore="MissingConstraints"
+        android:background="@color/white"
+        tools:layout_editor_absoluteX="105dp" />
+
+    <Button
+        android:id="@+id/addBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="Добавить"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="663dp"
+        tools:ignore="MissingConstraints" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

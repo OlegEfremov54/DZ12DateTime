@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DZ12DateTime</string>
+    <string name="exit">Выход из приложения</string>
+    <string name="infoStr">Информация о приложении</string>
+    <string name="text_view_name">Введите имя</string>
+    <string name="text_view_fam">Введите фамилию</string>
+    <string name="text_view_data">Введите дату</string>
+    <string name="text_name">Имя</string>
+    <string name="text_fam">Фамилия</string>
+    <string name="text_data">До ДР осталось</string>
+    <string name="text_view_telefon">Введите телефон</string>
+    <string name="text_telefon">Телефон</string>
+</resources>
