@@ -22,9 +22,9 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var toolbarPer: Toolbar
     private var person:Persons?=null
     private lateinit var personaNameET: TextView
-    private lateinit var personaFam: TextView
-    private lateinit var personaData: TextView
-    private lateinit var personaTelefon: TextView
+    private lateinit var personaFamET: TextView
+    private lateinit var personaDataET: TextView
+    private lateinit var personaTelefonET: TextView
     private lateinit var editImageIV: ImageView
     private lateinit var buttonBackBTN: Button
     private var fotoUri: Uri? = null
@@ -43,16 +43,16 @@ class MainActivity2 : AppCompatActivity() {
 
         toolbarPer = findViewById(R.id.toolbarPer)
         setSupportActionBar(toolbarPer)
-        title = " Карточка данных"
-        toolbarPer.subtitle = "  Версия 1. Страница Персоны"
+        title = "Карточка данных"
+        toolbarPer.subtitle = "Версия1.Страница Персоны"
         toolbarPer.setLogo(R.drawable.persons_img)
 
         buttonBackBTN = findViewById(R.id.exitBTN)
 
         personaNameET = findViewById(R.id.personaNameET)
-        personaFam = findViewById(R.id.personaFam)
-        personaData = findViewById(R.id.personaData)
-        personaTelefon=findViewById(R.id.personaTelefon)
+        personaFamET = findViewById(R.id.personaFam)
+        personaDataET = findViewById(R.id.personaData)
+        personaTelefonET=findViewById(R.id.personaTelefon)
         editImageIV=findViewById(R.id.editImageIV)
 
         person = (intent.extras?.getSerializable(Persons::class.java.simpleName) as Persons?)!!
@@ -66,9 +66,9 @@ class MainActivity2 : AppCompatActivity() {
         editImageIV.setImageURI(imageUri)
 
         personaNameET.text = name
-        personaFam.text = family
-        personaTelefon.text = telefon
-        personaData.text = besdata
+        personaFamET.text = family
+        personaTelefonET.text = telefon
+        personaDataET.text = besdata
 
         //инициация картинки
 

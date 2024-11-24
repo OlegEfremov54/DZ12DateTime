@@ -23,9 +23,9 @@ import java.time.format.DateTimeFormatter
 class MainActivity : AppCompatActivity() {
     private lateinit var toolbarMain: Toolbar
     private lateinit var personaNameET:EditText
-    private lateinit var personaFam:EditText
-    private lateinit var personaData:EditText
-    private lateinit var personaTelefon:EditText
+    private lateinit var personaFamET:EditText
+    private lateinit var personaDataET:EditText
+    private lateinit var personaTelefonET:EditText
     private lateinit var editImageIV: ImageView
     private lateinit var startButton:Button
     private var fotoUri: Uri? = null
@@ -44,17 +44,17 @@ class MainActivity : AppCompatActivity() {
         toolbarMain = findViewById(R.id.toolbarMain)
         setSupportActionBar(toolbarMain)
         title = " Карточка данных"
-        toolbarMain.subtitle = "  Версия 1. Главная страница"
+        toolbarMain.subtitle = "Версия1.Главная страница"
         toolbarMain.setLogo(R.drawable.persons_img)
 
         personaNameET = findViewById(R.id.personaNameET)
-        personaFam = findViewById(R.id.personaFam)
-        personaData = findViewById(R.id.personaData)
-        personaTelefon=findViewById(R.id.personaTelefon)
+        personaFamET = findViewById(R.id.personaFam)
+        personaDataET = findViewById(R.id.personaData)
+        personaTelefonET=findViewById(R.id.personaTelefon)
         startButton = findViewById(R.id.addBTN)
         editImageIV=findViewById(R.id.editImageIV)
-//инициация картинки
 
+//инициация картинки
         photoPickerLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -72,15 +72,21 @@ class MainActivity : AppCompatActivity() {
 //инициация кнопки перехода
 
         startButton.setOnClickListener {
-            if (personaNameET.text.isEmpty() || personaFam.text.isEmpty()) return@setOnClickListener
+            if (personaNameET.text.isEmpty() || personaFamET.text.isEmpty()) return@setOnClickListener
             val name = personaNameET.text.toString()
-            val fam = personaFam.text.toString()
+            val fam = personaFamET.text.toString()
             val image = fotoUri.toString()
-            val fon = personaTelefon.toString()
-            val dataInp = LocalDate.now()
-                .format(DateTimeFormatter.ofPattern("MM dd YYYY"))
-            val besdata = dataInp.toString()
-            val person = Persons(name, fam, besdata, image,fon)
+            val fon = personaTelefonET.text.toString()
+            val birthday = personaDataET.text.toString()
+            //val birthday = "09.05.1945"
+            //val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+            //val besdata: LocalDate? = LocalDate.parse(birthday, formatter)
+
+
+            //val dataInp = LocalDate.now()
+            //    .format(DateTimeFormatter.ofPattern("MM dd YYYY"))
+            //val besdata = dataInp.toString()
+            val person = Persons(name, fam, birthday, image,fon)
             val intent = Intent(this, MainActivity2::class.java)
             intent.putExtra(Persons::class.java.simpleName, person)
             startActivity(intent)
