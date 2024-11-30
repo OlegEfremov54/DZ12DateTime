@@ -17,8 +17,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var toolbarMain: Toolbar
@@ -78,14 +76,7 @@ class MainActivity : AppCompatActivity() {
             val image = fotoUri.toString()
             val fon = personaTelefonET.text.toString()
             val birthday = personaDataET.text.toString()
-            //val birthday = "09.05.1945"
-            //val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
-            //val besdata: LocalDate? = LocalDate.parse(birthday, formatter)
 
-
-            //val dataInp = LocalDate.now()
-            //    .format(DateTimeFormatter.ofPattern("MM dd YYYY"))
-            //val besdata = dataInp.toString()
             val person = Persons(name, fam, birthday, image,fon)
             val intent = Intent(this, MainActivity2::class.java)
             intent.putExtra(Persons::class.java.simpleName, person)

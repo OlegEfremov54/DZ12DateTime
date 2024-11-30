@@ -17,6 +17,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.time.LocalDate
+import java.time.Period
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var toolbarPer: Toolbar
@@ -41,12 +45,14 @@ class MainActivity2 : AppCompatActivity() {
             insets
         }
 
+        //Инициация тулбар
         toolbarPer = findViewById(R.id.toolbarPer)
         setSupportActionBar(toolbarPer)
         title = "Карточка данных"
         toolbarPer.subtitle = "Версия1.Страница Персоны"
         toolbarPer.setLogo(R.drawable.persons_img)
 
+        //Привязываем кнопки
         buttonBackBTN = findViewById(R.id.exitBTN)
 
         personaNameET = findViewById(R.id.personaNameET)
@@ -55,6 +61,8 @@ class MainActivity2 : AppCompatActivity() {
         personaTelefonET=findViewById(R.id.personaTelefon)
         editImageIV=findViewById(R.id.editImageIV)
 
+        //Получение данных персоны
+
         person = (intent.extras?.getSerializable(Persons::class.java.simpleName) as Persons?)!!
         val name = person?.name.toString()
         val family = person?.family.toString()
@@ -62,16 +70,25 @@ class MainActivity2 : AppCompatActivity() {
         val image = person?.image.toString()
         val telefon = person?.telefon.toString()
 
+        //Картинка
         val imageUri = Uri.parse(image)
         editImageIV.setImageURI(imageUri)
 
+        //Вычисление полных лет и количества дней до ДР
+        val  formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+        val bonDate = LocalDate.parse(besdata, formatter)
+        val daysUntil = daysUntilNextBirthday(bonDate)
+
+        val period = Period.between(bonDate, LocalDate.now())
+        val years = period.years
+
+        //Заполняем полученные данные в карточку
         personaNameET.text = name
         personaFamET.text = family
         personaTelefonET.text = telefon
-        personaDataET.text = besdata
+        personaDataET.text = "До следующего дня рождения осталось $daysUntil дней. Лет полных $years"
 
         //инициация картинки
-
         photoPickerLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -86,13 +103,13 @@ class MainActivity2 : AppCompatActivity() {
             photoPickerLauncher.launch(photoPickerIntent)
         }
 
-
+        //Кнопка Выход
         buttonBackBTN.setOnClickListener {
             finishAffinity()
         }
 
-
     }
+    //Инициация Меню
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main,menu)
         return true
@@ -111,6 +128,21 @@ class MainActivity2 : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    //Функция вычисления времени до ДР
+    fun daysUntilNextBirthday(birthDate: LocalDate): Long {
+        val today = LocalDate.now()
+        // Создаём дату следующего дня рождения на основе текущего года
+        var nextBirthday = birthDate.withYear(today.year)
+
+        // Если день рождения уже прошёл в этом году, берём следующий год
+        if (nextBirthday.isBefore(today) || nextBirthday.isEqual(today)) {
+            nextBirthday = nextBirthday.plusYears(1)
+        }
+
+        // Вычисляем разницу в днях
+        return ChronoUnit.DAYS.between(today, nextBirthday)
     }
 
 }
